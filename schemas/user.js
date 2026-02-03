@@ -20,8 +20,8 @@ const userSchema = new Schema({
 
 function validateUser(user) {
   const schema = Joi.object({
-    name: Joi.string().min(3).max(50).required(),
-    password: Joi.strinf().min(8).max(100).required(),
+    username: Joi.string().min(3).max(50).required(),
+    password: Joi.string().min(8).max(100).required(),
   });
   return schema.validate(user);
 }
