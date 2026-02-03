@@ -1,0 +1,30 @@
+{
+  "name": "dev-pages",
+  "version": "1.0.0",
+  "description": "A node web application that allows devs looking for work to upload their information and allows employers to search for candidates that meet their needs.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egirardo/dev-pages.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/egirardo/dev-pages/issues"
+  },
+  "homepage": "https://github.com/egirardo/dev-pages#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

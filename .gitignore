@@ -2,3 +2,5 @@ vendor
 .env
 DS_Store
 node_modules
+todo.md
+*:Zone.Identifier
