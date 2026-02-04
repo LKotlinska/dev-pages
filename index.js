@@ -22,6 +22,10 @@ app.get("/home", (req, res) => {
   res.render("index", { title: "Home" });
 });
 
+app.get("/profile", (req, res) => {
+  res.render("profile", { title: "Profile" });
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
