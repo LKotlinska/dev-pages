@@ -41,7 +41,7 @@ const loginRouter = router.post("/", async (req, res) => {
         maxAge: jwsExpirySeconds * 1000,
       });
 
-      res.redirect("/dashboard");
+      res.redirect("/profile");
     } catch (error) {
       return res.status(400).json({ message: error.message });
     }
