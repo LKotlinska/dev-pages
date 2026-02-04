@@ -1,0 +1,43 @@
+form {
+    width: 50vw;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.languageButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+.language-title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0 !important;
+}
+
+.language-title label {
+    margin-bottom: 0 !important;
+}
+
+.language-title small {
+    margin-bottom: .5rem !important;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.language-checkbox-container { 
+    border:2px solid var(--bs-border-color); 
+    border-radius: .25rem;
+    padding: .25rem;
+    width:300px; 
+    height: 100px; 
+    overflow-y: scroll 
+}

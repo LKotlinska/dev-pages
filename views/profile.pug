@@ -1,0 +1,89 @@
+extends layout
+
+block layout-content 
+    div.formContainer
+        form
+            div
+                label.form-label.mt-4(for="name") Name*
+                input.form-control(type="text", id="name", placeholder="Enter your full name")
+                small.form-text.text-muted(id="reqText") Required Field
+            div
+                label.form-label.mt-4(for="about") About Yourself
+                textarea.form-control(type="text", id="about", placeholder="Tell us a little more about yourself", rows="3", style="height: 61px;")
+            div
+                label.form-label.mt-4(for="yearsExperience") Years Experience*
+                input.form-control(type="number", id="yearsExperience", placeholder="How many years of experience do you have?")
+                small.form-text.text-muted(id="reqText") Required Field (Whole Numbers Only)
+            div
+                div.language-title
+                    label.form-label.mt-4 Languages*
+                    small.form-text.text-muted(id="reqText") Required
+                div.language-checkbox-container
+                    div.form-check
+                        input.form-check-input(type="checkbox", value="", id="js")
+                        label.form-check-label(for="js") Javascript
+                    div.form-check
+                        input.form-check-input(type="checkbox", value="", id="java")
+                        label.form-check-label(for="java") Java
+                    div.form-check
+                        input.form-check-input(type="checkbox", value="", id="php")
+                        label.form-check-label(for="php") PHP
+                    div.form-check
+                        input.form-check-input(type="checkbox", value="", id="html")
+                        label.form-check-label(for="html") HTML
+                    div.form-check
+                        input.form-check-input(type="checkbox", value="", id="ruby")
+                        label.form-check-label(for="ruby") Ruby
+
+            div.languageButtons
+                div.language-title
+                    label.form-label.mt-4 Languages*
+                    small.form-text.text-muted(id="reqText") Required
+                div.btn-group(role="group", aria-label="programming language toggle button group")
+                    input.btn-check(type="checkbox", id="js1", autocomplete="off")
+                    label.btn.btn-primary(for="js1") Javascript
+                    input.btn-check(type="checkbox", id="php1", autocomplete="off")
+                    label.btn.btn-primary(for="php1") PHP
+                    input.btn-check(type="checkbox", id="java1", autocomplete="off")
+                    label.btn.btn-primary(for="java1") Java
+                    input.btn-check(type="checkbox", id="html1", autocomplete="off")
+                    label.btn.btn-primary(for="html1") HTML
+                    input.btn-check(type="checkbox", id="ruby1", autocomplete="off")
+                    label.btn.btn-primary(for="ruby1") Ruby
+            div
+                label.form-label.mt-4 Frameworks/Libraries
+                div.form-check
+                    input.form-check-input(type="checkbox", value="", id="laravel")
+                    label.form-check-label(for="laravel") Laravel
+                div.form-check
+                    input.form-check-input(type="checkbox", value="", id="react")
+                    label.form-check-label(for="react") React
+                div.form-check
+                    input.form-check-input(type="checkbox", value="", id="angularJs")
+                    label.form-check-label(for="angularJs") AngularJS
+                div.form-check
+                    input.form-check-input(type="checkbox", value="", id="vueJs")
+                    label.form-check-label(for="vueJs") Vue.js
+                div.form-check
+                    input.form-check-input(type="checkbox", value="", id="nextJs")
+                    label.form-check-label(for="nextJs") Next.js
+            
+            div
+                label.form-label.mt-4(for="email") Email address*
+                input.form-control(type="email", id="email", placeholder="Enter email")
+                small.form-text.text-muted(id="reqText") Required Field
+            div
+                label.form-label.mt-4(for="phone") Phone
+                input.form-control(type="tel", id="phone", placeholder="Enter your phone number")
+            div
+                label.mt-4 Additional Links
+                div
+                    label.form-label.mt-4(for="github") Github
+                    input.form-control(type="text", id="github", placeholder="Github Link")
+                    label.form-label.mt-4(for="linkedIn") LinkedIn
+                    input.form-control(type="text", id="linkedIn", placeholder="LinkedIn Link")
+                    label.form-label.mt-4(for="otherLink") Other
+                    input.form-control(type="text", id="otherLink", placeholder="Additional Link")
+            div.buttonContainer
+                button.btn.btn-primary(type="submit") Submit
+
