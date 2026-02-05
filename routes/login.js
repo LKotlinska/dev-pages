@@ -30,8 +30,16 @@ const loginRouter = router.post("/", async (req, res) => {
         return res.status(400).json({ message: "Incorrect email or password" });
       }
 
-  
+      const token = jwt.sign({ id: user._id }, secret);
 
+      const isProd = process.env.NODE_ENV === "production";
+
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: isProd,
+        sameSite: isProd ? "strict" : "lax",
+        maxAge: jwsExpirySeconds * 1000,
+      });
       res.redirect("/profile");
     } catch (error) {
       return res.status(400).json({ message: error.message });

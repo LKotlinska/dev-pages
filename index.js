@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import "dotenv/config";
 import path from "path";
 import { fileURLToPath } from "url";
+import cookieParser from "cookie-parser";
+import auth from "./middleware/auth.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -14,6 +16,7 @@ const __dirname = path.dirname(__filename);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cookieParser());
 
 /* Routes Definitions */
 
@@ -21,8 +24,11 @@ app.get("/home", (req, res) => {
   res.render("index", { title: "Home" });
 });
 
-app.get("/profile", (req, res) => {
-  res.render("profile", { title: "Profile" });
+app.get("/profile", auth, (req, res) => {
+  res.render("profile", {
+    title: "Profile",
+    userId: req.user.username,
+  });
 });
 
 app.use(express.json());
@@ -40,7 +46,6 @@ app.use("/logout", logoutRouter);
 import profileRouter from "./routes/profiles.js";
 app.use("/profiles", profileRouter);
 
-
 app.get("/register", (req, res) => {
   res.render("register", { test: "hehe" });
 });
@@ -52,7 +57,6 @@ app.get("/login", (req, res) => {
 app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
-
 
 mongoose.connect(process.env.DB_CONNECTION).then(() => {
   console.log("Connected to DB.");
