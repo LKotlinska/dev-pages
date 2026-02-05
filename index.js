@@ -38,8 +38,8 @@ import logoutRouter from "./routes/logout.js";
 app.use("/logout", logoutRouter);
 
 import profileRouter from "./routes/profiles.js";
-
 app.use("/profiles", profileRouter);
+
 
 app.get("/register", (req, res) => {
   res.render("register", { test: "hehe" });
@@ -52,6 +52,7 @@ app.get("/login", (req, res) => {
 app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
+
 
 mongoose.connect(process.env.DB_CONNECTION).then(() => {
   console.log("Connected to DB.");

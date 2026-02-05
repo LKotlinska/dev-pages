@@ -1,5 +1,7 @@
 import Joi from "joi";
 import mongoose from "mongoose";
+import Profile from "./profile";
+
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
@@ -16,6 +18,8 @@ const userSchema = new Schema({
     minlength: 8,
     maxlength: 100,
   },
+
+  profile: Profile
 });
 
 function validateUser(user) {
