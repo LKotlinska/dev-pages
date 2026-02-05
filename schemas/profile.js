@@ -20,6 +20,9 @@ const profileSchema = new Schema({
   frameworksAndLibraries: {
     type: Array,
   },
+  preferences: {
+    type: Array,
+  },
   email: {
     type: String,
     required: true,
