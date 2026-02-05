@@ -4,7 +4,7 @@ import express from "express";
 
 const router = express.Router();
 
-const registerRouter = router.post("/add", async (req, res) => {
+const registerRouter = router.post("/", async (req, res) => {
   const { error } = validate(req.body);
 
   if (error) {
