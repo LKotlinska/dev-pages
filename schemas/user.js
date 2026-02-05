@@ -19,7 +19,7 @@ const userSchema = new Schema({
     maxlength: 100,
   },
 
-  profile: Profile.schema,
+  profile: Profile.schema
 });
 
 function validateUser(user) {

@@ -20,47 +20,47 @@ block layout-content
                     small.form-text.text-muted(id="reqText") Required
                 div.language-checkbox-container
                     div.form-check
-                        input.form-check-input(type="checkbox", name="languages", id="js")
+                        input.form-check-input(type="checkbox", name="languages", value="js" id="js")
                         label.form-check-label(for="js") Javascript
                     div.form-check
-                        input.form-check-input(type="checkbox", name="languages", id="java")
+                        input.form-check-input(type="checkbox", name="languages", value="java" id="java")
                         label.form-check-label(for="java") Java
                     div.form-check
-                        input.form-check-input(type="checkbox", name="languages", id="php")
+                        input.form-check-input(type="checkbox", name="languages", value="php" id="php")
                         label.form-check-label(for="php") PHP
                     div.form-check
-                        input.form-check-input(type="checkbox", name="languages", id="html")
+                        input.form-check-input(type="checkbox", name="languages", value="html" id="html")
                         label.form-check-label(for="html") HTML
                     div.form-check
-                        input.form-check-input(type="checkbox", name="languages", id="ruby")
+                        input.form-check-input(type="checkbox", name="languages", value="ruby" id="ruby")
                         label.form-check-label(for="ruby") Ruby
 
             div
                 label.form-label.mt-4 Frameworks/Libraries
                 div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", id="laravel")
+                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="laravel", id="laravel")
                     label.form-check-label(for="laravel") Laravel
                 div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", id="react")
+                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="react", id="react")
                     label.form-check-label(for="react") React
                 div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", id="angularJs")
+                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="angularJs", id="angularJs")
                     label.form-check-label(for="angularJs") AngularJS
                 div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", id="vueJs")
+                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="vueJs", id="vueJs")
                     label.form-check-label(for="vueJs") Vue.js
                 div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", id="nextJs")
+                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="nextJs", id="nextJs")
                     label.form-check-label(for="nextJs") Next.js
             
             div.preferenceButtons
                 label.form-label.mt-4 Preferences
                 div.btn-group(role="group", aria-label="preference toggle button group")
-                    input.btn-check(type="checkbox", id="frontend", name="preferences", autocomplete="off")
+                    input.btn-check(type="checkbox", id="frontend", name="preferences", value="frontend", autocomplete="off")
                     label.btn.btn-primary(for="frontend") Frontend
-                    input.btn-check(type="checkbox", id="backend", name="preferences", autocomplete="off")
+                    input.btn-check(type="checkbox", id="backend", name="preferences", value="backend", autocomplete="off")
                     label.btn.btn-primary(for="backend") Backend
-                    input.btn-check(type="checkbox", id="full-stack", name="preferences", autocomplete="off")
+                    input.btn-check(type="checkbox", id="full-stack", name="preferences", value="full-stack", autocomplete="off")
                     label.btn.btn-primary(for="full-stack") Full-Stack
             
             div

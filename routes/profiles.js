@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
         phone: req.body.phone
     });
     
+    
     res.redirect("/profile");
 
   } catch (e) {
