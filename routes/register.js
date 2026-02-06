@@ -24,7 +24,7 @@ const registerRouter = router.post("/", async (req, res) => {
         password: password,
       });
       await user.save();
-      return res.status(201).json(user);
+      return res.status(201).redirect("/home").send("Successfully registered!");
     } catch (error) {
       return res.status(400).json({ message: error.message });
     }

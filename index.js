@@ -15,8 +15,11 @@ const __dirname = path.dirname(__filename);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 /* Routes Definitions */
 
@@ -27,12 +30,8 @@ app.get("/home", (req, res) => {
 app.get("/profile", auth, (req, res) => {
   res.render("profile", {
     title: "Profile",
-    userId: req.user.username,
   });
 });
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 import registerRouter from "./routes/register.js";
 app.use("/register", registerRouter);
@@ -46,16 +45,15 @@ app.use("/logout", logoutRouter);
 import profileRouter from "./routes/profiles.js";
 app.use("/profiles", profileRouter);
 
+import collectionRouter from "./routes/collection.js";
+app.use("/collection", collectionRouter);
+
 app.get("/register", (req, res) => {
   res.render("register", { test: "hehe" });
 });
 
 app.get("/login", (req, res) => {
   res.render("login", {});
-});
-
-app.get("/dashboard", (req, res) => {
-  res.render("dashboard");
 });
 
 mongoose.connect(process.env.DB_CONNECTION).then(() => {

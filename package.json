@@ -28,6 +28,7 @@
     "jsonwebtoken": "^9.0.3",
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.5",
+    "mquery": "^6.0.0",
     "pug": "^3.0.3"
   },
   "devDependencies": {

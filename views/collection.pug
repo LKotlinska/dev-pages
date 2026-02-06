@@ -1,0 +1,40 @@
+extends layout 
+block layout-content
+
+  h1 Developer Collection
+  div.container
+    if users && users.length > 0
+      each user in users
+        if user.profile
+          div.card.mb-3
+            div.card-body
+              h5.card-title= user.profile.name
+              p.card-text 
+                strong About Developer: 
+                = user.profile.about || 'N/A'
+              p.card-text
+                strong Experience: 
+                = user.profile.yearsExperience || 'N/A'
+                |  years
+              p.card-text
+                strong Languages: 
+                = user.profile.languages ? user.profile.languages.join(', ') : 'N/A'
+              p.card-text
+                strong Frameworks/Libraries: 
+                = user.profile.frameworksAndLibraries ? user.profile.frameworksAndLibraries.join(', ') : 'N/A'
+              p.card-text 
+                strong Preferences: 
+                = user.profile.preferences ? user.profile.preferences.join(', ') : 'N/A'
+              p.card-text
+                strong Links: 
+                = user.profile.links || user.profile.links.length > 0 ? user.profile.links.join(', ') : 'Not provided'
+              details
+                summary: strong Contact information
+                p.card-text
+                  strong Email: 
+                  = user.profile.email || 'Not provided'
+                p.card-text
+                  strong Phone: 
+                  = user.profile.phone || 'Not provided'
+    else
+      p No developers found in the database.
