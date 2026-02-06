@@ -1,6 +1,9 @@
 extends layout
 
 block layout-content 
+
+    include header 
+    
     div.formContainer
         form(action="/profiles" method="post")
             div

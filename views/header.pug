@@ -1,0 +1,28 @@
+nav.navbar.navbar-expand-lg.bg-primary(data-bs-theme="light")
+    div.container-fluid
+        a.navbar-brand(href="/home") DevPages
+        button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon 
+        div.collapse.navbar-collapse(id="navbarColor01")
+            ul.navbar-nav.me-auto 
+                li.nav-item
+                    a.nav-link(href="/home") Home
+                li.nav-item
+                    a.nav-link(href="/collection") Browse
+            if user
+                a.btn.btn-secondary.my-2.my-sm-0(href="/logout") Logout
+            else
+                a.btn.btn-secondary.my-2.my-sm-0(href="/login") Login
+
+            //- potential solution for login/logout below
+            //- ul.nav.nav-pills 
+            //-     li.nav-item.dropdown    
+            //-         a.nav-link.dropdown-toggle(data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+            //-             img(src="/../public/assets/user-icon.png")
+            //-         div.dropdown-menu
+            //-             h6.dropdown-header 
+            //-             a.dropdown-item(href="/profiles/me") My Profile 
+            //-             a.dropdown-item(href="/logout") Logout
+
+            
+            

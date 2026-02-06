@@ -2,19 +2,15 @@ extends layout
 
 block layout-content
 
+    include header
 
-  div.View
-    div.NavSection
-        nav.navbar.navbar-expand-lg.bg-primary Home
-        div.container-fluid
-        a.navbar-brand WHATABYTE
-        button.navbar-toggler
-    h1.Banner WHATABYTE
-    div.Message
-      div.Title
-        h3 Making the Best
-        h1 Food For Devs
-      span.Details Access the WHATABYTE Team Portal
-    div.NavButtons
-      a(href="/user")
-          div.btn.btn-primary Just dive in!
+    div.View
+        h1.Banner WHATABYTE
+        div.Message
+        div.Title
+            h3 Making the Best
+            h1 Food For Devs
+        span.Details Access the WHATABYTE Team Portal
+        div.NavButtons
+        a(href="/collection")
+            div.btn.btn-primary Just dive in!
