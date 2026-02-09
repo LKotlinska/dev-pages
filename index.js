@@ -67,10 +67,14 @@ app.get("/login", (req, res) => {
 });
 
 mongoose.connect(process.env.MONGODB_URI).then(() => {
-  console.log("Connected to DB.");
-  app.listen(port, () => {
-    console.log(`API running on port ${port}`);
-  });
+  try {
+    console.log("Connected to DB.");
+    app.listen(port, () => {
+      console.log(`API running on port ${port}`);
+    });
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 export default app;
