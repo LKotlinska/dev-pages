@@ -29,6 +29,7 @@ router.post("/", auth, async (req, res) => {
     }
 
     user.profile = profileData;
+    user.markModified("profile");
 
     await user.save();
 
