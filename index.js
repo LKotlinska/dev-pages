@@ -24,7 +24,7 @@ app.use(attachUser);
 
 /* Routes Definitions */
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
 
@@ -66,9 +66,13 @@ app.get("/login", (req, res) => {
   res.render("login", {});
 });
 
-mongoose.connect(process.env.DB_CONNECTION).then(() => {
-  console.log("Connected to DB.");
-  app.listen(port, () => {
-    console.log(`API running on port ${port}`);
-  });
+mongoose.connect(process.env.MONGODB_URI).then(() => {
+  try {
+    app.listen(port, () => {
+    });
+  } catch (error) {
+    console.error(error);
+  }
 });
+
+export default app;

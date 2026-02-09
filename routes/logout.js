@@ -11,7 +11,7 @@ const logoutRouter = router.get("/", (req, res) => {
     sameSite: isProd ? "strict" : "lax",
   });
 
-  res.redirect("/home");
+  res.redirect("/");
 });
 
 export default logoutRouter;

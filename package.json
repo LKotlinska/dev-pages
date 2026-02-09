@@ -4,7 +4,8 @@
   "description": "A node web application that allows devs looking for work to upload their information and allows employers to search for candidates that meet their needs.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "vercel-build": "echo 'Build complete'"
   },
   "repository": {
     "type": "git",
@@ -33,5 +34,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }

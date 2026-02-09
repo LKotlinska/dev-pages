@@ -5,4 +5,4 @@ node_modules
 todo.md
 *:Zone.Identifier
 .vercel
-.env.local
+.env*.local
