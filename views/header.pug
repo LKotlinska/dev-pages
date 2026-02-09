@@ -10,6 +10,7 @@ nav.navbar.navbar-expand-lg.bg-primary(data-bs-theme="light")
                 li.nav-item
                     a.nav-link(href="/collection") Browse
             if user
+                a.btn.btn-secondary.my-2.my-sm-0(href="/profiles/me") My Profile
                 a.btn.btn-secondary.my-2.my-sm-0(href="/logout") Logout
             else
                 a.btn.btn-secondary.my-2.my-sm-0(href="/login") Login
