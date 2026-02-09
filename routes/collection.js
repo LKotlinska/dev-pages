@@ -6,7 +6,7 @@ const router = express.Router();
 
 const client = new MongoClient(process.env.MONGODB_URI);
 await client.connect();
-const db = client.db("admin");
+const db = client.db("test");
 
 const collectionRouter = router.get("/", async (req, res) => {
   const users = await db.collection("users").find({}).toArray();
