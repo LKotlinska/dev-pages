@@ -66,7 +66,7 @@ app.get("/login", (req, res) => {
   res.render("login", {});
 });
 
-mongoose.connect(process.env.DB_CONNECTION).then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log("Connected to DB.");
   app.listen(port, () => {
     console.log(`API running on port ${port}`);
