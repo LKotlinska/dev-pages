@@ -63,3 +63,16 @@ form {
   height: 100px;
   overflow-y: scroll;
 }
+
+.footer {
+    background-color: var(--bs-primary);
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+

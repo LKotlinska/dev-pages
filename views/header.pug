@@ -10,19 +10,10 @@ nav.navbar.navbar-expand-lg.bg-primary(data-bs-theme="light")
                 li.nav-item
                     a.nav-link(href="/collection") Browse
             if user
+                a.btn.btn-secondary.my-2.my-sm-0(href="/profiles/me") My Profile
                 a.btn.btn-secondary.my-2.my-sm-0(href="/logout") Logout
             else
                 a.btn.btn-secondary.my-2.my-sm-0(href="/login") Login
-
-            //- potential solution for login/logout below
-            //- ul.nav.nav-pills 
-            //-     li.nav-item.dropdown    
-            //-         a.nav-link.dropdown-toggle(data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
-            //-             img(src="/../public/assets/user-icon.png")
-            //-         div.dropdown-menu
-            //-             h6.dropdown-header 
-            //-             a.dropdown-item(href="/profiles/me") My Profile 
-            //-             a.dropdown-item(href="/logout") Logout
 
             
             
