@@ -4,7 +4,7 @@ import express from "express";
 
 const router = express.Router();
 
-const client = new MongoClient(process.env.DB_CONNECTION);
+const client = new MongoClient(process.env.MONGODB_URI);
 await client.connect();
 const db = client.db("test");
 
