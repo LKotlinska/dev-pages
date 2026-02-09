@@ -33,7 +33,7 @@ function validateUser(user) {
       .required()
       .messages({
         "string.pattern.base":
-          "Username can only contain letters, numbers, underscores and hyphens",
+          "Username can only contain letters, numbers, underscores and hyphens.",
       }),
     password: Joi.string().min(8).max(100).required(),
   });
@@ -41,4 +41,4 @@ function validateUser(user) {
 }
 
 const User = mongoose.model("User", userSchema);
-export { validateUser as validate, User };
+export { validateUser, User };
