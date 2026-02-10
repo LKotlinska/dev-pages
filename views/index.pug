@@ -3,7 +3,9 @@ extends layout
 block layout-content
 
     include header
-
+    if alert 
+        div.alert.alert-dismissible.alert-success
+            p #{alert}
     div.View
         h1.Banner DevPages
 

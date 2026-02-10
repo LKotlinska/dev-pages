@@ -40,7 +40,7 @@ app.get("/login", (req, res) => {
 
 app.get("/logout", (req, res) => {
   res.clearCookie("token");
-  res.redirect("/home");
+  res.render("index", { alert: "You have been logged out!" });
 });
 
 import registerRouter from "./routes/register.js";
