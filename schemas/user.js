@@ -40,13 +40,20 @@ function validateUser(user) {
           "Username can only contain letters, numbers, underscores and hyphens.",
         "any.required": "Username is required.",
       }),
-    password: Joi.string().min(8).max(100).required().messages({
-      "string.base": "Password must be text.",
-      "string.empty": "Password cannot be empty.",
-      "string.min": "Password must be at least 8 characters long.",
-      "string.max": "Password cannot exceed 100 characters.",
-      "any.required": "Password is required.",
-    }),
+    password: Joi.string()
+      .pattern(/^[a-z0-9_-]+$/)
+      .min(8)
+      .max(100)
+      .required()
+      .messages({
+        "string.base": "Password must be text.",
+        "string.empty": "Password cannot be empty.",
+        "string.min": "Password must be at least 8 characters long.",
+        "string.max": "Password cannot exceed 100 characters.",
+        "string.pattern.base":
+          "Password can only contain letters, numbers, underscores and hyphens.",
+        "any.required": "Password is required.",
+      }),
   });
   return schema.validate(user);
 }
