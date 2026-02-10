@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { User, validate } from "../schemas/user.js";
+import { User, validateUser } from "../schemas/user.js";
 import bcrypt from "bcrypt";
 import express from "express";
 import jwt from "jsonwebtoken";
@@ -9,7 +9,7 @@ const secret = process.env.SECRET;
 const jwsExpirySeconds = 300;
 
 const loginRouter = router.post("/", async (req, res) => {
-  const { error } = validate(req.body);
+  const { error } = validateUser(req.body);
 
   if (error) {
     return res.status(401).send(error.details[0].message);

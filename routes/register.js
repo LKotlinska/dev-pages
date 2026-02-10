@@ -1,11 +1,11 @@
-import { User, validate } from "../schemas/user.js";
+import { User, validateUser } from "../schemas/user.js";
 import bcrypt from "bcrypt";
 import express from "express";
 
 const router = express.Router();
 
 const registerRouter = router.post("/", async (req, res) => {
-  const { error } = validate(req.body);
+  const { error } = validateUser(req.body);
 
   if (error) {
     return res.status(400).send(error.details[0].message);
@@ -14,7 +14,7 @@ const registerRouter = router.post("/", async (req, res) => {
   let user = await User.findOne({ username: req.body.username });
 
   if (user) {
-    return res.status(400).send("User already exists. Please sign in.");
+    return res.status(400).send("User already exists. Please log in.");
   } else {
     try {
       const salt = await bcrypt.genSalt(10);

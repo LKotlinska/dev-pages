@@ -39,7 +39,7 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  res.clearCookie('token');
+  res.clearCookie("token");
   res.redirect("/home");
 });
 
@@ -59,17 +59,16 @@ import collectionRouter from "./routes/collection.js";
 app.use("/collection", collectionRouter);
 
 app.get("/register", (req, res) => {
-  res.render("register", { test: "hehe" });
+  res.render("login");
 });
 
 app.get("/login", (req, res) => {
-  res.render("login", {});
+  res.render("login");
 });
 
 mongoose.connect(process.env.MONGODB_URI).then(() => {
   try {
-    app.listen(port, () => {
-    });
+    app.listen(port, () => {});
   } catch (error) {
     console.error(error);
   }
