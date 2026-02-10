@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.formContainerFilter form');
     const accordionItems = document.querySelectorAll('.accordion-item');
     
-    // Prevent form submission and filter instead in the case that a user clicks enter
+    // Prevent form submission and filter instead in the case that a user clicks enter key in form
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         filterProfiles();
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.display = matches ? '' : 'none';
         });
 
-        // REMOVE classes from ALL items first
+        // REMOVE classes from ALL items first - for border radius control and overriding bs styling
         accordionItems.forEach(item => {
             item.classList.remove('first-visible', 'last-visible');
         });
@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update border radius class after filtration that styling stays consistent with accordion after hiding children
         const visibleItems = Array.from(accordionItems).filter(item => item.style.display !== 'none');
 
-        // ADD classes only to first and last visible items
+        // ADD classes only to first and last visible items - for border radius control and overriding bs styling
         if (visibleItems.length > 0) {
             visibleItems[0].classList.add('first-visible');
             visibleItems[visibleItems.length - 1].classList.add('last-visible');
         }
 
-        // Show "no results" message if no items are visible (MOVED INSIDE THE FUNCTION)
+        // Show "no results" message if no items are visible
         const noResultsMessage = document.querySelector('.no-results-message');
         if (noResultsMessage) {
             noResultsMessage.style.display = visibleItems.length === 0 ? 'block' : 'none';
