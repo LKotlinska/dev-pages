@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { User, validateUser } from "../schemas/user.js";
+import { validateUser, User } from "../schemas/user.js";
 import bcrypt from "bcrypt";
 import express from "express";
 import jwt from "jsonwebtoken";
@@ -12,13 +12,15 @@ const loginRouter = router.post("/", async (req, res) => {
   const { error } = validateUser(req.body);
 
   if (error) {
-    return res.status(401).send(error.details[0].message);
+    return res.status(401).render("login", { error: error.details[0].message });
   } else {
     try {
       let user = await User.findOne({ username: req.body.username });
 
       if (!user) {
-        return res.status(400).json({ message: "Incorrect email or password" });
+        return res
+          .status(400)
+          .render("login", { error: "Incorrect email or password" });
       }
 
       const isCorrectPassword = await bcrypt.compare(
@@ -27,7 +29,9 @@ const loginRouter = router.post("/", async (req, res) => {
       );
 
       if (!isCorrectPassword) {
-        return res.status(400).json({ message: "Incorrect email or password" });
+        return res
+          .status(400)
+          .render("login", { error: "Incorrect email or password" });
       }
 
       const token = jwt.sign({ id: user._id }, secret);
@@ -42,7 +46,7 @@ const loginRouter = router.post("/", async (req, res) => {
       });
       res.redirect("/profile");
     } catch (error) {
-      return res.status(400).json({ message: error.message });
+      return res.status(400).render("login", { error: error.message });
     }
   }
 });
