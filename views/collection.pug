@@ -38,14 +38,16 @@ block layout-content
         else
           p No developers found in the database.
 
+        p.no-results-message(style="display: none; text-align: center; margin-top: 2rem; color: #6c757d;") No developers match your filters.
+
     div.filter-container
       h2 Filters
       div.formContainerFilter
         form(action="/profiles" method="post")
             div
-                label.form-label.mt-4(for="yearsExperienceFilter") Years Experience*
+                label.form-label.mt-4(for="yearsExperienceFilter") Minimum Years Experience
                 input.form-control(type="number", id="yearsExperienceFilter", name="yearsExperienceFilter", placeholder="What is the minimum years of experience are you looking for?")
-                small.form-text.text-muted(id="reqText")(Whole Numbers Only)
+                small.form-text.text-muted(id="reqText") Shows developers with this many years experience or more (Whole Numbers Only)
             div
                 div.language-title
                     label.form-label.mt-4 Languages
@@ -93,6 +95,8 @@ block layout-content
                     label.btn.btn-primary(for="backendFilter") Backend
                     input.btn-check(type="checkbox", id="full-stackFilter", name="preferences", value="full-stackFilter", autocomplete="off")
                     label.btn.btn-primary(for="full-stackFilter") Full-Stack
-            button.btn.btn-secondary.filter-btn(type="submit") Filter Results
+            div.mt-3.filter-btn
+              button.btn.btn-secondary(type="button" id="resetFilters") Reset Filters
 
+  script(src="/js/filter.js")
   include footer
