@@ -1,3 +1,22 @@
+html,
+body,
+#root,
+.container {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 form {
   width: 50vw;
 }
@@ -13,12 +32,24 @@ form {
 .mb-3 {
   margin-top: 2em;
 }
+.container {
+  height: 100%;
+}
 
 .row {
-  height: 100vh;
+  gap: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.alert p {
+  margin: 0;
+}
+
+.alert {
+  padding: 1em 2em;
+  margin-bottom: 3em;
 }
 
 .col-md-6 {
@@ -65,14 +96,12 @@ form {
 }
 
 .footer {
-    background-color: var(--bs-primary);
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    gap: 1rem;
+  background-color: var(--bs-primary);
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
 }
-
-

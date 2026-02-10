@@ -5,31 +5,37 @@ block layout-content
   include header
 
   div.container
-            div.row
-              div.col-md-6
-                h2.mb-4 Login
-                form.sign-form(action="/login" method="post")
-                  div.mb-3
-                    label.col-sm-2.col-form-label(for="username") Username
-                    input.form-control(type="text" id="username" name="username" placeholder="Username" required)
-                  
-                  div.mb-3
-                    label.col-sm-2.col-form-label(for="password") Password
-                    input.form-control(type="password" id="password" name="password" placeholder="Password" required)
+    if error
+      div.alert.alert-dismissible.alert-danger
+        p #{error}
+    if alert 
+      div.alert.alert-dismissible.alert-success
+        p #{alert}
+    div.row
+      div.col-md-6
+        h2.mb-4 Login
+        form.sign-form(action="/login" method="post")
+          div.mb-3
+            label.col-sm-2.col-form-label(for="username") Username
+            input.form-control(type="text" id="username" name="username" placeholder="Username" required)
+          
+          div.mb-3
+            label.col-sm-2.col-form-label(for="password") Password
+            input.form-control(type="password" id="password" name="password" placeholder="Password" required)
 
-                  button.btn.btn-primary.btn-lg.w-100.mb-3(type="submit") Login
-                  
-              div.col-md-6
-                h2.mb-4 Register
-                form.sign-form(action="/register" method="post")
-                  div.mb-3
-                    label.col-sm-2.col-form-label(for="username") Username
-                    input.form-control(type="text" id="username" name="username" placeholder="Username" required)
-                  
-                  div.mb-3
-                    label.col-sm-2.col-form-label(for="password") Password
-                    input.form-control(type="password" id="password" name="password" placeholder="Password" required)
+          button.btn.btn-primary.btn-lg.w-100.mb-3(type="submit") Login
+          
+      div.col-md-6
+        h2.mb-4 Register
+        form.sign-form(action="/register" method="post")
+          div.mb-3
+            label.col-sm-2.col-form-label(for="username") Username
+            input.form-control(type="text" id="username" name="username" placeholder="Username" required)
+          
+          div.mb-3
+            label.col-sm-2.col-form-label(for="password") Password
+            input.form-control(type="password" id="password" name="password" placeholder="Password" required)
 
-                  button.btn.btn-primary.btn-lg.w-100.mb-3(type="submit") Register
+          button.btn.btn-primary.btn-lg.w-100.mb-3(type="submit") Register
 
   include footer 

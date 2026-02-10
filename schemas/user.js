@@ -19,7 +19,7 @@ const userSchema = new Schema({
     maxlength: 100,
   },
 
-  profile: Profile.schema
+  profile: Profile.schema,
 });
 
 function validateUser(user) {
@@ -31,4 +31,4 @@ function validateUser(user) {
 }
 
 const User = mongoose.model("User", userSchema);
-export { validateUser as validate, User };
+export { validateUser, User };
