@@ -81,12 +81,13 @@ function validateProfile(profile) {
 
     phone: Joi.string()
       .trim()
-      .pattern(/^\d{9}$/) // 0-9 digits
+      .pattern(/^[1-9]\d{8}$/) // First digit 1-9, then 8 more digits
       .length(9)
       .allow("", null)
       .optional()
       .messages({
-        "string.pattern.base": "Phone number must be exactly 9 digits.",
+        "string.pattern.base":
+          "Phone number must be exactly 9 digits and cannot start with 0.",
         "string.length": "Phone number must be exactly 9 digits.",
       }),
   });
