@@ -49,15 +49,15 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
-  try {
-    const profiles = await Profile.find();
+// router.get("/", async (req, res) => {
+//   try {
+//     const profiles = await Profile.find();
 
-    res.json({ data: profiles });
-  } catch (error) {
-    res.status(500).render("profile", { error: error.message });
-  }
-});
+//     res.json({ data: profiles });
+//   } catch (error) {
+//     res.status(500).render("profile", { error: error.message });
+//   }
+// });
 
 // router.get("/me", auth, async (req, res) => {
 //   try {
