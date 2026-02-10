@@ -32,10 +32,21 @@ function validateUser(user) {
       .max(50)
       .required()
       .messages({
+        "string.base": "Username must be text.",
+        "string.empty": "Username cannot be empty.",
+        "string.min": "Username must be at least 3 characters long.",
+        "string.max": "Username cannot exceed 50 characters.",
         "string.pattern.base":
           "Username can only contain letters, numbers, underscores and hyphens.",
+        "any.required": "Username is required.",
       }),
-    password: Joi.string().min(8).max(100).required(),
+    password: Joi.string().min(8).max(100).required().messages({
+      "string.base": "Password must be text.",
+      "string.empty": "Password cannot be empty.",
+      "string.min": "Password must be at least 8 characters long.",
+      "string.max": "Password cannot exceed 100 characters.",
+      "any.required": "Password is required.",
+    }),
   });
   return schema.validate(user);
 }
