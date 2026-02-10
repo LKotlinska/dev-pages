@@ -3,40 +3,34 @@ block layout-content
   include header 
 
   h1 Developer Collection
-  div.container
+
+  div.accordion(id="devs-container")
     if users && users.length > 0
-      each user in users
+      each user, index in users
         if user.profile
-          div.card.mb-3
-            div.card-body
-              h5.card-title= user.profile.name
-              p.card-text 
+          div.accordion-item
+            h2.accordion-header(id=`heading${index}`)
+              button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target=`#collapse${index}` aria-expanded="false" aria-controls=`collapse${index}`)= `${user.profile.name} | ${user.profile.yearsExperience} years Experience | ${user.profile.languages.join(', ')}`
+            div.accordion-collapse.collapse(id=`collapse${index}` aria-labelledby=`heading${index}` data-bs-parent="#devs-container" style="")
+              div.accordion-body
                 strong About Developer: 
                 = user.profile.about || 'N/A'
-              p.card-text
-                strong Experience: 
-                = user.profile.yearsExperience || 'N/A'
-                |  years
-              p.card-text
-                strong Languages: 
-                = user.profile.languages ? user.profile.languages.join(', ') : 'N/A'
-              p.card-text
+                br
                 strong Frameworks/Libraries: 
                 = user.profile.frameworksAndLibraries ? user.profile.frameworksAndLibraries.join(', ') : 'N/A'
-              p.card-text 
+                br
                 strong Preferences: 
                 = user.profile.preferences ? user.profile.preferences.join(', ') : 'N/A'
-              p.card-text
+                br
                 strong Links: 
                 = user.profile.links || user.profile.links.length > 0 ? user.profile.links.join(', ') : 'Not provided'
-              details
-                summary: strong Contact information
-                p.card-text
-                  strong Email: 
-                  = user.profile.email || 'Not provided'
-                p.card-text
-                  strong Phone: 
-                  = user.profile.phone || 'Not provided'
+                br
+                strong Email: 
+                = user.profile.email || 'Not provided'
+                br
+                strong Phone: 
+                = user.profile.phone || 'Not provided'
+
     else
       p No developers found in the database.
 
