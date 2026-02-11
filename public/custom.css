@@ -15,7 +15,6 @@ body {
 }
 
 .main-section {
-  height: 100%;
   padding: 2em;
   text-align: center;
 }
@@ -36,6 +35,11 @@ body {
   max-width: 15%;
   margin: 1em;
 }
+
+.btn-nav {
+  margin: 0 0.7em;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -85,6 +89,19 @@ form {
 
 .col-md-6 {
   width: 40%;
+  align-self: flex-start;
+}
+
+.profile-card {
+  max-width: min-content;
+  min-width: 50%;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
 }
 
 .formContainer,

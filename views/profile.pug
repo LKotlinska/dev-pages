@@ -61,21 +61,16 @@ block layout-content
                     label.form-label.mt-4 Languages*
                     small.form-text.text-muted(id="reqText") Required
                 div.language-checkbox-container
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languages", value="js" id="js")
-                        label.form-check-label(for="js") Javascript
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languages", value="java" id="java")
-                        label.form-check-label(for="java") Java
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languages", value="php" id="php")
-                        label.form-check-label(for="php") PHP
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languages", value="html" id="html")
-                        label.form-check-label(for="html") HTML
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languages", value="ruby" id="ruby")
-                        label.form-check-label(for="ruby") Ruby
+                    each language in languages
+                        div.form-check
+                            input.form-check-input(
+                                type='checkbox' 
+                                name='languagesFilter' 
+                                value=language 
+                                id=`lang-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`
+                            )
+                            label.form-check-label(for=`lang-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`)= language
+                            
 
             div
                 label.form-label.mt-4 Frameworks/Libraries

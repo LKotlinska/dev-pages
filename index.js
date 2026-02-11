@@ -6,6 +6,8 @@ import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
 import auth, { attachUser } from "./middleware/auth.js";
 import { User } from "./schemas/user.js";
+import frameworks from "./config/frameworks.js";
+import languages from "./config/languages.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -35,7 +37,9 @@ app.get("/profile", auth, async (req, res) => {
 
     res.render("profile", {
       title: "Profile",
-      userProfile: user?.profile || null, // Pass existing profile or null
+      userProfile: user.profile,
+      languages: languages,
+      frameworks: frameworks,
     });
   } catch (error) {
     res.render("profile", {

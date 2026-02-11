@@ -5,11 +5,14 @@ import auth from "../middleware/auth.js";
 import { User } from "../schemas/user.js";
 import { prepareProfileData } from "../utility/formHelpers.js";
 import { render } from "pug";
-
+import frameworks from '../config/frameworks.js';
+import languages from '../config/languages.js';
 /** @type {import('mongoose').Model<any>} */
 const Profile = ProfileModel;
 
+console.log(languages);
 const router = express.Router();
+
 
 router.post("/", auth, async (req, res) => {
   try {
@@ -33,6 +36,8 @@ router.post("/", auth, async (req, res) => {
       return res.status(400).render("profile", {
         error: error.details[0].message,
         userProfile: user.profile,
+        languages: languages,
+        frameworks: frameworks,    
       });
     }
 
@@ -43,37 +48,36 @@ router.post("/", auth, async (req, res) => {
     res.render("profile", {
       alert: "Your profile has been sucessfully saved!",
       userProfile: user.profile,
+      languages: languages,
+      frameworks: frameworks,
     });
   } catch (e) {
-    res.status(400).render("profile", { error: e.message });
+    res.status(400).render("profile", { 
+        error: e.message,
+        languages: languages,
+        frameworks: frameworks,
+     });
   }
 });
 
-// router.get("/", async (req, res) => {
-//   try {
-//     const profiles = await Profile.find();
+router.get("/", auth, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const user = await User.findById(userId);
 
-//     res.json({ data: profiles });
-//   } catch (error) {
-//     res.status(500).render("profile", { error: error.message });
-//   }
-// });
-
-// router.get("/me", auth, async (req, res) => {
-//   try {
-//     const userId = req.user.id;
-
-//     const user = await User.findById(userId).select("profile");
-
-//     if (!user) {
-//       return res.status(404).json({ error: "User not found" });
-//     }
-
-//     res.json({ data: user.profile });
-//   } catch (error) {
-//     console.error("Fetch user profile error:", error);
-//     res.status(500).json({ error: error.message });
-//   }
-// });
+    console.log(languages);
+    res.render("profile", {
+      userProfile: user?.profile || null,
+      languages: languages,
+      frameworks: frameworks,
+    });
+  } catch (error) {
+    res.status(500).render("profile", { 
+      error: error.message,
+      languages: languages,
+      frameworks: frameworks,
+    });
+  }
+});
 
 export default router;

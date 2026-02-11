@@ -1,22 +1,22 @@
 import jwt from "jsonwebtoken";
-import { User } from "../schemas/user.js"; 
+import { User } from "../schemas/user.js";
 
 // middleware to attach user to cookie
 export const attachUser = async (req, res, next) => {
   try {
     const token = req.cookies.token;
-    
+
     if (token) {
       const decoded = jwt.verify(token, process.env.SECRET);
-      
-      const user = await User.findById(decoded.id).select('-password');
-      
+
+      const user = await User.findById(decoded.id).select("-password");
+
       if (user) {
         res.locals.user = {
           id: user._id.toString(),
-          username: user.username
+          username: user.username,
         };
-        req.user = decoded; 
+        req.user = decoded;
       } else {
         res.locals.user = null;
       }
@@ -24,10 +24,10 @@ export const attachUser = async (req, res, next) => {
       res.locals.user = null;
     }
   } catch (error) {
-    res.clearCookie('token');
+    res.clearCookie("token");
     res.locals.user = null;
   }
-  
+
   next();
 };
 
@@ -51,13 +51,17 @@ export default function auth(req, res, next) {
 //prevents logged in users from accessing login/register page
 export const redirectIfAuth = (req, res, next) => {
   const token = req.cookies.token;
-  
+
   if (token) {
     try {
       jwt.verify(token, process.env.SECRET);
-      return res.redirect('/profile/me');
+      return res.render("profile", {
+        userProfile: user.profile,
+        languages: languages,
+        frameworks: frameworks,
+      });
     } catch (error) {
-      res.clearCookie('token');
+      res.clearCookie("token");
     }
   }
   next();
