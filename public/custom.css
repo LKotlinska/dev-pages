@@ -35,6 +35,11 @@ body {
   max-width: 15%;
   margin: 1em;
 }
+
+.btn-nav {
+  margin: 0 0.7em;
+}
+
 .container {
   display: flex;
   flex-direction: column;

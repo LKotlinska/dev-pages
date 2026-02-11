@@ -6,14 +6,13 @@ nav.navbar.navbar-expand-lg.bg-primary(data-bs-theme="light")
         div.collapse.navbar-collapse(id="navbarColor01")
             ul.navbar-nav.me-auto 
                 li.nav-item
-                    a.nav-link(href="/") Home
-                li.nav-item
                     a.nav-link(href="/collection") Browse
             if user
                 a.btn.btn-secondary.my-2.my-sm-0(href="/profile") My Profile
                 a.btn.btn-secondary.my-2.my-sm-0(href="/logout") Logout
             else
-                a.btn.btn-secondary.my-2.my-sm-0(href="/login") Login
+                a.btn.btn-secondary.my-2.my-sm-0.btn-nav(href="/login") Register
+                a.btn.btn-secondary.my-2.my-sm-0.btn-nav(href="/login") Login
 
             
             
