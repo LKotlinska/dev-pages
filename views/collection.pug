@@ -53,7 +53,7 @@ block layout-content
     div.filter-container
       h2 Filters
       div.formContainerFilter
-        form(action="/profiles" method="post")
+        form
             div
                 label.form-label.mt-4(for="yearsExperienceFilter") Minimum Years Experience
                 input.form-control(type="number", id="yearsExperienceFilter", name="yearsExperienceFilter", placeholder="What is the minimum years of experience are you looking for?")
@@ -61,40 +61,29 @@ block layout-content
             div
                 div.language-title
                     label.form-label.mt-4 Languages
-                div.language-checkbox-container
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languagesFilter", value="js" id="js")
-                        label.form-check-label(for="js") Javascript
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languagesFilter", value="java" id="java")
-                        label.form-check-label(for="java") Java
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languagesFilter", value="php" id="php")
-                        label.form-check-label(for="php") PHP
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languagesFilter", value="html" id="html")
-                        label.form-check-label(for="html") HTML
-                    div.form-check
-                        input.form-check-input(type="checkbox", name="languagesFilter", value="ruby" id="ruby")
-                        label.form-check-label(for="ruby") Ruby
-
+                div.checkbox-container
+                    each language in languages
+                        div.form-check
+                            input.form-check-input(
+                                type='checkbox' 
+                                name='languagesFilter' 
+                                value=language 
+                                id=`langFilter-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`
+                                required
+                            )
+                            label.form-check-label(for=`langFilter-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`)= language
             div
                 label.form-label.mt-4 Frameworks/Libraries
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibrariesFilter", value="laravel", id="laravel")
-                    label.form-check-label(for="laravel") Laravel
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibrariesFilter", value="react", id="react")
-                    label.form-check-label(for="react") React
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibrariesFilter", value="angularJs", id="angularJs")
-                    label.form-check-label(for="angularJs") AngularJS
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibrariesFilter", value="vueJs", id="vueJs")
-                    label.form-check-label(for="vueJs") Vue.js
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibrariesFilter", value="nextJs", id="nextJs")
-                    label.form-check-label(for="nextJs") Next.js
+                div.checkbox-container
+                    each framework in frameworks
+                        div.form-check
+                            input.form-check-input(
+                                type='checkbox' 
+                                name='frameworksAndLibrariesFilter' 
+                                value=framework 
+                                id=`frameworksAndLibrariesFilter-${framework.toLowerCase().replace(/[^a-z0-9]/g, '')}`
+                            )
+                            label.form-check-label(for=`frameworksAndLibrariesFilter-${framework.toLowerCase().replace(/[^a-z0-9]/g, '')}`)= framework
             
             div.preferenceButtons
                 label.form-label.mt-4 Preferences

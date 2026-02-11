@@ -1,6 +1,8 @@
 import { MongoClient } from "mongodb";
 import "dotenv/config";
 import express from "express";
+import frameworks from '../config/frameworks.js';
+import languages from '../config/languages.js';
 
 const router = express.Router();
 
@@ -13,6 +15,8 @@ const collectionRouter = router.get("/", async (req, res) => {
   res.render("collection", {
     title: "Developer Collection",
     users: users,
+    languages: languages,
+    frameworks: frameworks,    
   });
 });
 
