@@ -31,11 +31,12 @@ block layout-content
           div.mb-3
             label.col-sm-2.col-form-label(for="username") Username
             input.form-control(type="text" id="username" name="username" placeholder="Username" required)
+            p.tool-tip * Must be 3–50 characters and can contain letters (a–z, å, ä, ö), numbers, underscores, and hyphens.
           
           div.mb-3
             label.col-sm-2.col-form-label(for="password") Password
             input.form-control(type="password" id="password" name="password" placeholder="Password" required)
+            p.tool-tip * Must be 8–100 characters and can contain letters, numbers, underscores, and hyphens.
 
           button.btn.btn-primary.btn-lg.w-100.mb-3(type="submit") Register
-
   include footer 

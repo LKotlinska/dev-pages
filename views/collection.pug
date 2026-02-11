@@ -3,7 +3,7 @@ block layout-content
 
   include header 
 
-  h1 Developer Collection
+  h1.browse-title Developer Collection
   div.developers
     div.accordion-container
       h2 Our Devs
@@ -12,28 +12,37 @@ block layout-content
           each user, index in users
             if user.profile
               div.accordion-item
-                h2.accordion-header(id=`heading${index}`)
+                h3.accordion-header(id=`heading${index}`)
                   button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target=`#collapse${index}` aria-expanded="false" aria-controls=`collapse${index}`)!= `<strong>${user.profile.name}</strong>&nbsp;|  ${user.profile.yearsExperience} years Experience  |  ${user.profile.languages.join(', ')}`
                 div.accordion-collapse.collapse(id=`collapse${index}` aria-labelledby=`heading${index}` data-bs-parent="#devs-container" style="")
                   div.accordion-body
-                    p 
-                      strong About Developer: 
-                      = user.profile.about || 'N/A'
-                    p
-                      strong Frameworks/Libraries: 
-                      = user.profile.frameworksAndLibraries ? user.profile.frameworksAndLibraries.join(', ') : 'N/A'
-                    p
-                      strong Preferences: 
-                      = user.profile.preferences ? user.profile.preferences.join(', ') : 'N/A'
-                    p
-                      strong Links: 
-                      = user.profile.links || user.profile.links.length > 0 ? user.profile.links.join(', ') : 'Not provided'
-                    p
-                      strong Email: 
-                      = user.profile.email || 'Not provided'
-                    p
-                      strong Phone: 
-                      = user.profile.phone || 'Not provided'
+                    if user.profile.about
+                      p 
+                        strong About Developer: 
+                        = user.profile.about
+                    if user.profile.frameworksAndLibraries && user.profile.frameworksAndLibraries.length > 0
+                      p
+                        strong Frameworks/Libraries: 
+                        = user.profile.frameworksAndLibraries.join(', ')
+                    if user.profile.preferences && user.profile.preferences.length > 0
+                      p
+                        strong Preferences: 
+                        = user.profile.preferences.join(', ')
+                    if user.profile.links && user.profile.links.length > 0
+                      p
+                        strong Links:
+                      ul
+                        each link in user.profile.links
+                          if link && link.trim()
+                            li= link
+                    if user.profile.email
+                      p
+                        strong Email: 
+                        = user.profile.email
+                    if user.profile.phone
+                      p
+                        strong Phone: 
+                        = user.profile.phone
 
         else
           p No developers found in the database.
