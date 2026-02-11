@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 
 const router = express.Router();
 const secret = process.env.SECRET;
-const jwsExpirySeconds = 300000;
+const jwsExpirySeconds = 30000000;
 
 const loginRouter = router.post("/", async (req, res) => {
   const { error } = validateUser(req.body);
