@@ -2,7 +2,6 @@ extends layout
 
 block layout-content
 
-    include header
     if alert 
         div.alert.alert-dismissible.alert-success.alert-custom
             p #{alert}
@@ -30,7 +29,3 @@ block layout-content
                     p.card-text Filter candidates that match your tech stack
                     p.card-text View contact info, GitHub repos, and LinkedIn profiles
                     p.card-text Reach out directly - no middleman
-
-
-
-    include footer

@@ -2,8 +2,6 @@ extends layout
 
 block layout-content
 
-  include header
-
   div.container
     if error
       div.alert.alert-dismissible.alert-danger
@@ -38,4 +36,3 @@ block layout-content
             p.tool-tip * Minimum 8 characters
 
           button.btn.btn-primary.btn-lg.w-100.mb-3(type="submit") Register
-  include footer 

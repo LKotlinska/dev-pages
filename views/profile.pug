@@ -4,8 +4,6 @@ block layout-content
 
     - form = form || {}
 
-    include header 
-
     if error
         div.alert.alert-dismissible.alert-danger.alert-custom
             p #{error}
@@ -128,5 +126,3 @@ block layout-content
         
             div.buttonContainer
                 button.btn.btn-primary(type="submit") Submit
-
-    include footer
