@@ -5,37 +5,34 @@ block layout-content
     include header 
 
     if userProfile
-        div.profile-view
+        section.profile-section
             h1 Your current profile
-            div.accordion-item
-                h2.accordion-header
-                    button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapseProfile" aria-expanded="false" aria-controls="collapseProfile")= `${userProfile.name} | ${userProfile.yearsExperience} years Experience | ${userProfile.languages.join(', ')}`
-                div.accordion-collapse.collapse(id="collapseProfile" aria-labelledby="headingProfile" data-bs-parent="#devs-container")
-                    div.accordion-body
-                        if userProfile.about
-                            strong About Developer: 
-                            = userProfile.about
-                            br
-                        if userProfile.frameworksAndLibraries && userProfile.frameworksAndLibraries.length > 0
-                            strong Frameworks/Libraries: 
-                            = userProfile.frameworksAndLibraries.join(', ')
-                            br
-                        if userProfile.preferences && userProfile.preferences.length > 0
-                            strong Preferences: 
-                            = userProfile.preferences.join(', ')
-                            br
-                        if userProfile.links && userProfile.links.length > 0
-                            strong Links: 
-                            = userProfile.links.join(', ')
-                            br
-                        if userProfile.email
-                            strong Email: 
-                            = userProfile.email
-                            br
-                        if userProfile.phone
-                            strong Phone: 
-                            = userProfile.phone
-                            br
+            div.card.bg-secondary.mb-3.profile-card
+                h2.card-header= userProfile.name
+                div.card-body
+                    if userProfile.about
+                        strong.card-title About Developer: 
+                        p= userProfile.about
+                    if userProfile.frameworksAndLibraries && userProfile.frameworksAndLibraries.length > 0
+                        strong.card-title Frameworks/Libraries: 
+                        p= userProfile.frameworksAndLibraries.join(', ')
+
+                    if userProfile.preferences && userProfile.preferences.length > 0
+                        strong.card-title Preferences: 
+                        p= userProfile.preferences.join(', ')
+
+                    if userProfile.links && userProfile.links.length > 0
+                        strong.card-title Links: 
+                        p= userProfile.links.join(', ')
+
+                    if userProfile.email
+                        strong.card-title Email: 
+                        p= userProfile.email
+
+                    if userProfile.phone
+                        strong.card-title Phone: 
+                        p= userProfile.phone
+
     div.formContainer
         h2 Edit your profile
         if error
