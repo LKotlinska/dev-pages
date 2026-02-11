@@ -34,7 +34,8 @@ block layout-content
                       ul
                         each link in user.profile.links
                           if link && link.trim()
-                            li= link
+                            li
+                              a(href=link)= link
                     if user.profile.email
                       p
                         strong Email: 
