@@ -6,11 +6,31 @@ block layout-content
     if alert 
         div.alert.alert-dismissible.alert-success
             p #{alert}
-    div.View
-        h1.Banner DevPages
+    section.main-section
+        h1 Welcome to DevPages
+        p.lead.mt-3 Tired of sending your résumé into the void?
+        p.lead.mt-3 Build a dev profile that shows what you actually know, not just where you went to school.
+        p.lead.mt-3 Developers list their skills. Employers find their next hire. Everybody wins.
+        a.btn.btn-primary(href="./login") I'm a Developer 
+        a.btn.btn-primary(href="./collection") I'm Hiring
+    section.main-section
+        h2 How it works 
+        div.card-container
+            div.card.bg-secondary.mb-3
+                h3.card-header For Developers
+                div.card-body
+                    p.card-text Create a profile with your languages, frameworks, and experience
+                    p.card-text Add links to your GitHub, LinkedIn, and portfolio
+                    p.card-text Get discovered by employers actively looking to hire
+                    p.card-text Keep your profile updated as your skills grow
+            div.card.bg-secondary.mb-3
+                h3.card-header For Employers
+                div.card-body
+                    p.card-text Browse developer profiles by language, framework, or experience
+                    p.card-text Filter candidates that match your tech stack
+                    p.card-text View contact info, GitHub repos, and LinkedIn profiles
+                    p.card-text Reach out directly - no middleman
 
-        div.NavButtons
-        a(href="/collection")
-            div.btn.btn-primary Just dive in!
+
 
     include footer
