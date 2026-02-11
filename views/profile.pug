@@ -5,37 +5,39 @@ block layout-content
     include header 
 
     if userProfile
-        h2 Your current profile
-        div.accordion-item
-            h3.accordion-header
-                button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapseProfile" aria-expanded="false" aria-controls="collapseProfile")= `${userProfile.name} | ${userProfile.yearsExperience} years Experience | ${userProfile.languages.join(', ')}`
-            div.accordion-collapse.collapse(id="collapseProfile" aria-labelledby="headingProfile" data-bs-parent="#devs-container")
-                div.accordion-body
-                    if userProfile.about
-                        strong About Developer: 
-                        = userProfile.about
-                        br
-                    if userProfile.frameworksAndLibraries && userProfile.frameworksAndLibraries.length > 0
-                        strong Frameworks/Libraries: 
-                        = userProfile.frameworksAndLibraries.join(', ')
-                        br
-                    if userProfile.preferences && userProfile.preferences.length > 0
-                        strong Preferences: 
-                        = userProfile.preferences.join(', ')
-                        br
-                    if userProfile.links && userProfile.links.length > 0
-                        strong Links: 
-                        = userProfile.links.join(', ')
-                        br
-                    if userProfile.email
-                        strong Email: 
-                        = userProfile.email
-                        br
-                    if userProfile.phone
-                        strong Phone: 
-                        = userProfile.phone
-                        br
+        div.profile-view
+            h1 Your current profile
+            div.accordion-item
+                h2.accordion-header
+                    button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapseProfile" aria-expanded="false" aria-controls="collapseProfile")= `${userProfile.name} | ${userProfile.yearsExperience} years Experience | ${userProfile.languages.join(', ')}`
+                div.accordion-collapse.collapse(id="collapseProfile" aria-labelledby="headingProfile" data-bs-parent="#devs-container")
+                    div.accordion-body
+                        if userProfile.about
+                            strong About Developer: 
+                            = userProfile.about
+                            br
+                        if userProfile.frameworksAndLibraries && userProfile.frameworksAndLibraries.length > 0
+                            strong Frameworks/Libraries: 
+                            = userProfile.frameworksAndLibraries.join(', ')
+                            br
+                        if userProfile.preferences && userProfile.preferences.length > 0
+                            strong Preferences: 
+                            = userProfile.preferences.join(', ')
+                            br
+                        if userProfile.links && userProfile.links.length > 0
+                            strong Links: 
+                            = userProfile.links.join(', ')
+                            br
+                        if userProfile.email
+                            strong Email: 
+                            = userProfile.email
+                            br
+                        if userProfile.phone
+                            strong Phone: 
+                            = userProfile.phone
+                            br
     div.formContainer
+        h2 Edit your profile
         if error
             div.alert.alert-dismissible.alert-danger
                 p #{error}
@@ -45,14 +47,14 @@ block layout-content
         form(action="/profiles" method="post")
             div
                 label.form-label.mt-4(for="name") Name*
-                input.form-control(type="text", id="name", name="name", placeholder="Enter your full name")
+                input.form-control(type="text", id="name", name="name", placeholder="Enter your full name" required)
                 small.form-text.text-muted(id="reqText") Required Field
             div
                 label.form-label.mt-4(for="about") About Yourself
                 textarea.form-control(type="text", id="about", name="about" placeholder="Tell us a little more about yourself", rows="3", style="height: 61px;")
             div
                 label.form-label.mt-4(for="yearsExperience") Years Experience*
-                input.form-control(type="number", id="yearsExperience", name="yearsExperience", placeholder="How many years of experience do you have?")
+                input.form-control(type="number", id="yearsExperience", name="yearsExperience", placeholder="How many years of experience do you have?" required)
                 small.form-text.text-muted(id="reqText") Required Field (Whole Numbers Only)
             div
                 div.language-title
@@ -105,7 +107,7 @@ block layout-content
             
             div
                 label.form-label.mt-4(for="email") Email address*
-                input.form-control(type="email", id="email", name="email", placeholder="Enter email")
+                input.form-control(type="email", id="email", name="email", placeholder="Enter email" required)
                 small.form-text.text-muted(id="reqText") Required Field
             div
                 label.form-label.mt-4(for="phone") Phone
@@ -114,11 +116,11 @@ block layout-content
                 label.mt-4 Additional Links
                 div
                     label.form-label.mt-4(for="github") Github
-                    input.form-control(type="text", id="github", name="links", placeholder="Github Link")
+                    input.form-control(type="url", id="github", name="links", placeholder="Github Link")
                     label.form-label.mt-4(for="linkedIn") LinkedIn
-                    input.form-control(type="text", id="linkedIn", name="links", placeholder="LinkedIn Link")
+                    input.form-control(type="url", id="linkedIn", name="links", placeholder="LinkedIn Link")
                     label.form-label.mt-4(for="otherLink") Other
-                    input.form-control(type="text", id="otherLink", name="links", placeholder="Additional Link")
+                    input.form-control(type="url", id="otherLink", name="links", placeholder="Additional Link")
             div.buttonContainer
                 button.btn.btn-primary(type="submit") Submit
 

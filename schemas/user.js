@@ -27,7 +27,7 @@ function validateUser(user) {
     username: Joi.string()
       .trim()
       .lowercase()
-      .pattern(/^[a-z0-9_-]+$/) // Only lowercase letters, numbers, underscore, hyphen
+      .pattern(/^[a-z0-9_\-åäö]+$/) // Only lowercase letters, numbers, underscore, hyphen
       .min(3)
       .max(50)
       .required()
