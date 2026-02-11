@@ -142,12 +142,12 @@ form {
   padding-top: 1rem;
 }
 
-.language-checkbox-container {
+.checkbox-container {
   border: 2px solid var(--bs-border-color);
   border-radius: 0.25rem;
   padding: 0.25rem;
   width: 300px;
-  height: 100px;
+  height: 10rem;
   overflow-y: scroll;
 }
 
@@ -160,6 +160,10 @@ form {
   align-items: center;
   padding: 1rem;
   gap: 1rem;
+}
+
+footer {
+    margin-top: 2rem;
 }
 
 .developers {

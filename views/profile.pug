@@ -46,49 +46,49 @@ block layout-content
                 p #{alert}
         form(action="/profiles" method="post")
             div
-                label.form-label.mt-4(for="name") Name*
+                label.form-label.mt-4(for="name") Name *
                 input.form-control(type="text", id="name", name="name", placeholder="Enter your full name" required)
                 small.form-text.text-muted(id="reqText") Required Field
+
             div
-                label.form-label.mt-4(for="about") About Yourself
-                textarea.form-control(type="text", id="about", name="about" placeholder="Tell us a little more about yourself", rows="3", style="height: 61px;")
+                label.form-label.mt-4(for="email") Email address *
+                input.form-control(type="email", id="email", name="email", placeholder="Enter email" required)
+                small.form-text.text-muted(id="reqText") Required Field
+                
             div
-                label.form-label.mt-4(for="yearsExperience") Years Experience*
+                label.form-label.mt-4(for="yearsExperience") Years Experience *
                 input.form-control(type="number", id="yearsExperience", name="yearsExperience", placeholder="How many years of experience do you have?" required)
                 small.form-text.text-muted(id="reqText") Required Field (Whole Numbers Only)
+
             div
                 div.language-title
-                    label.form-label.mt-4 Languages*
+                    label.form-label.mt-4 Languages *
                     small.form-text.text-muted(id="reqText") Required
-                div.language-checkbox-container
+                div.checkbox-container
                     each language in languages
                         div.form-check
                             input.form-check-input(
                                 type='checkbox' 
-                                name='languagesFilter' 
+                                name='languages' 
                                 value=language 
                                 id=`lang-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`
+                                required
                             )
                             label.form-check-label(for=`lang-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`)= language
                             
 
             div
                 label.form-label.mt-4 Frameworks/Libraries
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="laravel", id="laravel")
-                    label.form-check-label(for="laravel") Laravel
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="react", id="react")
-                    label.form-check-label(for="react") React
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="angularJs", id="angularJs")
-                    label.form-check-label(for="angularJs") AngularJS
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="vueJs", id="vueJs")
-                    label.form-check-label(for="vueJs") Vue.js
-                div.form-check
-                    input.form-check-input(type="checkbox", name="frameworksAndLibraries", value="nextJs", id="nextJs")
-                    label.form-check-label(for="nextJs") Next.js
+                div.checkbox-container
+                    each framework in frameworks
+                        div.form-check
+                            input.form-check-input(
+                                type='checkbox' 
+                                name='frameworks' 
+                                value=framework 
+                                id=`framework-${framework.toLowerCase().replace(/[^a-z0-9]/g, '')}`
+                            )
+                            label.form-check-label(for=`framework-${framework.toLowerCase().replace(/[^a-z0-9]/g, '')}`)= framework
             
             div.preferenceButtons
                 label.form-label.mt-4 Preferences
@@ -101,21 +101,21 @@ block layout-content
                     label.btn.btn-primary(for="full-stack") Full-Stack
             
             div
-                label.form-label.mt-4(for="email") Email address*
-                input.form-control(type="email", id="email", name="email", placeholder="Enter email" required)
-                small.form-text.text-muted(id="reqText") Required Field
+                label.form-label.mt-4(for="about") About Yourself
+                textarea.form-control(type="text", id="about", name="about" placeholder="Tell us a little more about yourself", rows="3", style="height: 61px;")
+
             div
                 label.form-label.mt-4(for="phone") Phone
                 input.form-control(type="tel", id="phone", name="phone", placeholder="Enter your phone number")
+
             div
-                label.mt-4 Additional Links
-                div
-                    label.form-label.mt-4(for="github") Github
-                    input.form-control(type="url", id="github", name="links", placeholder="Github Link")
-                    label.form-label.mt-4(for="linkedIn") LinkedIn
-                    input.form-control(type="url", id="linkedIn", name="links", placeholder="LinkedIn Link")
-                    label.form-label.mt-4(for="otherLink") Other
-                    input.form-control(type="url", id="otherLink", name="links", placeholder="Additional Link")
+                label.form-label.mt-4(for="github") Github Link
+                input.form-control(type="url", id="github", name="links", placeholder="Github Link")
+                label.form-label.mt-4(for="linkedIn") LinkedIn Link
+                input.form-control(type="url", id="linkedIn", name="links", placeholder="LinkedIn Link")
+                label.form-label.mt-4(for="otherLink") Other Link
+                input.form-control(type="url", id="otherLink", name="links", placeholder="Additional Link")
+        
             div.buttonContainer
                 button.btn.btn-primary(type="submit") Submit
 
