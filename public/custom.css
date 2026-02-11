@@ -4,14 +4,17 @@ body,
 .container {
   height: 100%;
 }
-
+.browse-title {
+  text-align: center;
+  padding-top: 1em;
+  margin-bottom: 2em;
+}
 body {
   display: flex;
   flex-direction: column;
 }
 
 .main-section {
-  height: 100%;
   padding: 2em;
   text-align: center;
 }
@@ -32,11 +35,21 @@ body {
   max-width: 15%;
   margin: 1em;
 }
+
+.btn-nav {
+  margin: 0 0.7em;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.tool-tip {
+  margin: 0.5em;
+  font-size: 0.9em;
 }
 
 form {
@@ -76,13 +89,28 @@ form {
 
 .col-md-6 {
   width: 40%;
+  align-self: flex-start;
 }
 
-.formContainer {
+.profile-card {
+  max-width: min-content;
+  min-width: 50%;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.formContainer,
+.profile-view {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin: 3em 0;
 }
 
 .formContainer .alert {
@@ -167,7 +195,9 @@ h1 {
   width: 40vw;
   margin-top: 0.25rem;
 }
-
+.developers .accordion-container .accordion {
+  margin-top: 2em;
+}
 /* Remove default first/last child styling */
 .accordion-item:first-child {
   border-top-left-radius: 0 !important;

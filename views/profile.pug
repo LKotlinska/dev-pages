@@ -60,15 +60,15 @@ block layout-content
                     small.form-text.text-muted(id="reqText") Required
                 div.language-checkbox-container
                     each language in languages
-                        .form-check
-                        input.form-check-input(
-                            type='checkbox' 
-                            name='languagesFilter' 
-                            value=language 
-                            id=`lang-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`
-                        )
-                        label.form-check-label(for=`lang-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`)= language
-        
+                        div.form-check
+                            input.form-check-input(
+                                type='checkbox' 
+                                name='languagesFilter' 
+                                value=language 
+                                id=`lang-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`
+                            )
+                            label.form-check-label(for=`lang-${language.toLowerCase().replace(/[^a-z0-9]/g, '')}`)= language
+                            
 
             div
                 label.form-label.mt-4 Frameworks/Libraries
