@@ -87,6 +87,11 @@ form {
   margin-bottom: 3em;
 }
 
+.alert-custom {
+  max-width: 20%;
+  margin: 2em auto 0 auto;
+}
+
 .col-md-6 {
   width: 40%;
   align-self: flex-start;
