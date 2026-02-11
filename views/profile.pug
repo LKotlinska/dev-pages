@@ -5,10 +5,10 @@ block layout-content
     include header 
 
     if error
-        div.alert.alert-dismissible.alert-danger
+        div.alert.alert-dismissible.alert-danger.alert-custom
             p #{error}
     if alert 
-        div.alert.alert-dismissible.alert-success
+        div.alert.alert-dismissible.alert-success.alert-custom
             p #{alert}
     if userProfile
         section.profile-section
@@ -19,6 +19,11 @@ block layout-content
                     if userProfile.about
                         strong.card-title About Developer: 
                         p= userProfile.about
+
+                    if userProfile.languages && userProfile.languages.length > 0
+                        strong.card-title Languages: 
+                        p= userProfile.languages.join(', ')
+
                     if userProfile.frameworksAndLibraries && userProfile.frameworksAndLibraries.length > 0
                         strong.card-title Frameworks/Libraries: 
                         p= userProfile.frameworksAndLibraries.join(', ')
