@@ -2,6 +2,8 @@ const languages = [
     "JavaScript",
     "Python",
     "TypeScript",
+    "HTML",
+    "CSS",
     "Java",
     "C#",
     "C++",
