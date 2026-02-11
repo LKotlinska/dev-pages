@@ -13,7 +13,7 @@ block layout-content
             if user.profile
               div.accordion-item
                 h3.accordion-header(id=`heading${index}`)
-                  button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target=`#collapse${index}` aria-expanded="false" aria-controls=`collapse${index}`)!= `<strong>${user.profile.name}</strong>&nbsp;|  ${user.profile.yearsExperience} years Experience  |  ${user.profile.languages.join(', ')}`
+                  button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target=`#collapse${index}` aria-expanded="false" aria-controls=`collapse${index}`)!= `<strong>${user.profile.name}</strong>&nbsp;|  ${user.profile.yearsExperience} years Experience  |  ${user.profile.preferences.join(', ')}`
                 div.accordion-collapse.collapse(id=`collapse${index}` aria-labelledby=`heading${index}` data-bs-parent="#devs-container" style="")
                   div.accordion-body
                     if user.profile.about
@@ -29,10 +29,7 @@ block layout-content
                       p
                         strong Frameworks/Libraries: 
                         = user.profile.frameworksAndLibraries.join(', ')
-                    if user.profile.preferences && user.profile.preferences.length > 0
-                      p
-                        strong Preferences: 
-                        = user.profile.preferences.join(', ')
+    
                     if user.profile.links && user.profile.links.length > 0
                       p
                         strong Links:
