@@ -10,7 +10,6 @@ import languages from '../config/languages.js';
 /** @type {import('mongoose').Model<any>} */
 const Profile = ProfileModel;
 
-console.log(languages);
 const router = express.Router();
 
 
@@ -65,7 +64,6 @@ router.get("/", auth, async (req, res) => {
     const userId = req.user.id;
     const user = await User.findById(userId);
 
-    console.log(languages);
     res.render("profile", {
       userProfile: user?.profile || null,
       languages: languages,
