@@ -2,6 +2,12 @@ extends layout
 block layout-content
 
   h1.browse-title Developer Collection
+  if error
+    div.alert.alert-dismissible.alert-danger
+      p #{error}
+  if alert 
+    div.alert.alert-dismissible.alert-success
+      p #{alert}
   div.developers
     div.accordion-container
       h2 Our Devs

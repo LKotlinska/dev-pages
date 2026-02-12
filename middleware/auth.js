@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 import { User } from "../schemas/user.js";
+import frameworks from "../config/frameworks.js";
+import languages from "../config/languages.js";
 
 // middleware to attach user to cookie
 export const attachUser = async (req, res, next) => {
@@ -49,17 +51,23 @@ export default function auth(req, res, next) {
 }
 
 //prevents logged in users from accessing login/register page
-export const redirectIfAuth = (req, res, next) => {
+export const redirectIfAuth = async (req, res, next) => {
   const token = req.cookies.token;
 
   if (token) {
     try {
-      jwt.verify(token, process.env.SECRET);
-      return res.render("profile", {
-        userProfile: user.profile,
-        languages: languages,
-        frameworks: frameworks,
-      });
+      const decoded = jwt.verify(token, process.env.SECRET);
+      const user = await User.findById(decoded.id);
+
+      if (user) {
+        return res.render("profile", {
+          title: "Profile",
+          userProfile: user.profile,
+          languages: languages,
+          frameworks: frameworks,
+          form: {},
+        });
+      }
     } catch (error) {
       res.clearCookie("token");
     }

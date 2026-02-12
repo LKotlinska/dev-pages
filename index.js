@@ -82,12 +82,17 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-mongoose.connect(process.env.MONGODB_URI).then(() => {
-  try {
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
     app.listen(port, () => {});
-  } catch (error) {
-    console.error(error);
-  }
-});
+  })
+  .catch((error) => {
+    console.error("Failed to connect to database:\nError:", error.message);
+    console.error(
+      "\nPlease check:\n- Your MONGODB_URI in .env file\n- Database credentials\n- Network connection",
+    );
+    process.exit(1);
+  });
 
 export default app;
