@@ -34,6 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return '';
     }
+
+    // function checking for exact matches including special characters for the languages/frameworks filters
+    function containsExactToken(text, term) {
+        // Drop everything up to and including the first colon (the field label)
+        const colonIdx = text.indexOf(':');
+        const valuesText = colonIdx !== -1 ? text.slice(colonIdx + 1) : text;
+        // Split on commas, slashes, semicolons, or pipes; trim whitespace from each token
+        const tokens = valuesText.split(/[,/;|]+/).map(t => t.trim()).filter(Boolean);
+        return tokens.some(token => token === term.toLowerCase());
+    }
     
     function filterProfiles() {
         const minYears = parseInt(document.getElementById('yearsExperienceFilter').value) || 0;
@@ -72,18 +82,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Languages check (must have ALL selected languages)
             if (selectedLanguages.length > 0) {
-                const hasAllLanguages = selectedLanguages.every(lang => 
-                    languagesText.includes(lang.toLowerCase())
+                const hasAllLanguages = selectedLanguages.every(lang =>
+                    containsExactToken(languagesText, lang)
                 );
                 if (!hasAllLanguages) matches = false;
             }
             
-            // Frameworks check (must have at least ONE selected framework)
+            // Frameworks check (must have ALL selected frameworks)
             if (selectedFrameworks.length > 0) {
-                const hasAnyFramework = selectedFrameworks.some(fw => 
-                    frameworksText.includes(fw.toLowerCase())
+                const hasAllFrameworks = selectedFrameworks.some(fw =>
+                    containsExactToken(frameworksText, fw)
                 );
-                if (!hasAnyFramework) matches = false;
+                if (!hasAllFrameworks) matches = false;
             }
             
             // Preferences check (must have at least ONE selected preference)
